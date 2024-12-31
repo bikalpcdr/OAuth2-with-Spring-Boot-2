@@ -1,0 +1,45 @@
+INSERT INTO oauth_client_details (client_id, client_secret, web_server_redirect_uri, scope, access_token_validity,
+                                  refresh_token_validity, resource_ids, authorized_grant_types, additional_information)
+VALUES ('ins-client-info', '$2a$12$8ZhY0ofVN2oswNb4g7QHA.q3Vst.BpAsSpLObZL6tDkhcUpJT8tre', 'http://localhost:8080/code',
+        'READ,WRITE', '3600', '10000', 'inventory,payment', 'authorization_code,password,refresh_token,implicit', '{}');
+
+        psw - admin
+
+
+INSERT INTO PERMISSION (id, NAME)
+VALUES (1, 'create'),
+       (2, 'read'),
+       (3, 'update'),
+       (4, 'delete');
+
+
+INSERT INTO role (id, NAME)
+VALUES (1, 'ROLE_ADMIN'),
+       (2, 'ROLE_CANDIDATE');
+
+ INSERT INTO PERMISSION_ROLE (PERMISSION_ID, ROLE_ID) VALUES
+     (1,1), /*create-> admin */
+     (2,1), /* read admin */
+     (3,1), /* update admin */
+     (4,1), /* delete admin */
+     (2,2);  /* read candidate */
+
+
+insert into users (id, username, password, email, enabled, account_non_expired, credentials_non_expired, account_non_locked)
+VALUES ('1', 'manish', '$2a$12$tWc0mu2791xOYpoqL56GruHgea02RU.bdGW8IvT/Q/T4j6c5CMhXS', 'manish@yopmail.com', '1',
+        '1', '1', '1');
+
+        psw - test
+        username - manish
+
+insert into users (id, username, password, email, enabled, account_non_expired, credentials_non_expired, account_non_locked)
+VALUES ('1', 'ronaldo', '$2a$12$tWc0mu2791xOYpoqL56GruHgea02RU.bdGW8IvT/Q/T4j6c5CMhXS', 'ronaldo@yopmail.com', '1',
+        '1', '1', '1');
+
+        psw - test
+        username - ronaldo
+
+INSERT INTO ROLE_USER (ROLE_ID, USER_ID)
+    VALUES
+    (1, 1) /* manish-admin */,
+    (2, 2) /* ronaldo-operatorr */ ;

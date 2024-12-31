@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: OAuth2-with-Spring-Boot-3
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth2
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+          ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+
+
+server:
+  port: 5000
+
+#Security Key
+security:
+  jwt:
+    key-store: classpath:keystore.jks
+    key-store-password: password
+    key-pair-alias: practice
+    key-pair-password: password
+    public-key: classpath:public.txt
